@@ -36,3 +36,19 @@ export const connectToDB = async () => {
     }
   }
 };
+
+// Close the connection with database
+export const closeDb = async () => {
+  try {
+    await sequelize.close();
+    console.log("Connection has been closed successfully.");
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error("Unable to connect to the database:", error.message);
+    } else {
+      console.error(
+        "An unknown error occurred while trying to close the database connection."
+      );
+    }
+  }
+};
