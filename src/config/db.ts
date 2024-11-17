@@ -16,3 +16,23 @@ export const sequelize = new Sequelize(
     logging: (...msg) => console.log(msg),
   }
 );
+
+// Make a connection with database
+export const connectToDB = async () => {
+  try {
+    console.log("Trying to connect to the database...");
+    if (!sequelize) {
+      throw new Error("Cannot connect to DB, sequelize instance is null.");
+    }
+    await sequelize.authenticate();
+    console.log("Connection has been established successfully.");
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error("Unable to connect to the database:", error.message);
+    } else {
+      console.error(
+        "An unknown error occurred while trying to connect to the database."
+      );
+    }
+  }
+};
