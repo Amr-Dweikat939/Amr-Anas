@@ -33,3 +33,6 @@ export const ProductCategory = sequelize.define(
         timestamps: false, // Disables timestamps as this is a join table
     }
 );
+
+// Create the table in the database
+ProductCategory.sync();

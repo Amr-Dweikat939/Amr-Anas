@@ -7,25 +7,32 @@ import { DataTypes } from "sequelize";
 // Import Wishlist model
 import { Wishlist } from "./wishListModel";
 
-// Import product model
+// Import Product model
+import { Products } from "./ProductModel";
 
 // Define the WishlistProduct model
 export const WishlistProduct = sequelize.define(
   "WishlistProduct",
   {
-    wishlistProductId: {
+    wishlistProduct_Id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    wishlistId: {
+    wishlist_id: {
       type: DataTypes.INTEGER,
       references: {
         model: Wishlist,
-        key: "wishlistId",
+        key: "wishlist_id",
       },
     },
-    // productId
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Products,
+        key: "product_id",
+      },
+    },
   },
   {
     tableName: "wishlistProduct",

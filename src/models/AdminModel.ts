@@ -2,11 +2,11 @@ import { Sequelize, DataTypes } from "sequelize";
 import { sequelize } from "../config/db.js";
 import bcrypt from "bcrypt";
 
-// Create a MERCHANTS Schema
-export const Merchants = sequelize.define(
-    'merchants',
+// Create an ADMIN Schema
+export const Admin = sequelize.define(
+    'admin',
     {
-        merchant_id: {
+        admin_id: {
             type: DataTypes.UUID,
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4, // Automatically generates a UUID
@@ -21,9 +21,9 @@ export const Merchants = sequelize.define(
         email: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
+            unique: true, // Ensures email is unique
             validate: {
-                isEmail: true,
+                isEmail: true, // Validates that the email format is correct
             },
         },
         password: {
@@ -36,36 +36,23 @@ export const Merchants = sequelize.define(
                 }
                 const salt = bcrypt.genSaltSync(10);
                 const hash = bcrypt.hashSync(value, salt);
-                this.setDataValue('password', hash);
+                this.setDataValue('password', hash); // Encrypt password before storing it
             },
         },
-        businessName: {
+        role: {
             type: DataTypes.STRING,
             allowNull: false,
+            defaultValue: 'admin', // Default role for admins
             validate: {
                 notEmpty: true,
             },
-        },
-        businessAddress: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true,
-            },
-        },
-        phone: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isNumeric: true,
-                len: [10, 15], // Assuming phone numbers are between 10-15 digits
-            },
+            //more roles will be added in the future
         },
     },
     {
-        timestamps: true, // Automatically creates `createdAt` and `updatedAt` fields
+        timestamps: true, // Enables createdAt and updatedAt automatically
     }
 );
 
 // Sync the model with the database
-Merchants.sync();
+Admin.sync();

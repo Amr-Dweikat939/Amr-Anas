@@ -42,7 +42,7 @@ export const Products = sequelize.define(
             allowNull: false,
             references: {
                 model: 'merchants', // Reference to Merchants table
-                key: 'merchantId',
+                key: 'merchant_id',
             },
             onDelete: 'CASCADE', // Deletes products if the merchant is deleted
         },
@@ -51,7 +51,7 @@ export const Products = sequelize.define(
             allowNull: false,
             references: {
                 model: 'categories', // Reference to Categories table
-                key: 'categoryId',
+                key: 'category_id',
             },
             onDelete: 'SET NULL', // Sets category_id to NULL if the category is deleted
         },
@@ -79,3 +79,4 @@ export const Products = sequelize.define(
         timestamps: true, // Automatically creates `createdAt` and `updatedAt` fields
     }
 );
+

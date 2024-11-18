@@ -11,16 +11,16 @@ import { User } from "./userModel";
 export const Wishlist = sequelize.define(
   "Wishlist",
   {
-    wishlistId: {
+    wishlist_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: User,
-        key: "userId",
+        key: "user_id",
       },
     },
     createdAt: {
@@ -34,3 +34,4 @@ export const Wishlist = sequelize.define(
     updatedAt: false,
   }
 );
+

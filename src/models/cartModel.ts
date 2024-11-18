@@ -8,19 +8,19 @@ import { DataTypes } from "sequelize";
 import { User } from "./userModel";
 
 // Define the Cart model
-export const Cart = sequelize.define(
+export const Carts = sequelize.define(
   "Cart",
   {
-    cartId: {
+    cart_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: User,
-        key: "userId",
+        key: "user_id",
       },
     },
     createdAt: {
