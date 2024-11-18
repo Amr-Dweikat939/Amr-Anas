@@ -13,7 +13,7 @@ import { Wishlist } from "./wishListModel";
 export const WishlistProduct = sequelize.define(
   "WishlistProduct",
   {
-    wishlistProductId: {
+    wishlistProduct_Id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -22,7 +22,7 @@ export const WishlistProduct = sequelize.define(
       type: DataTypes.INTEGER,
       references: {
         model: Wishlist,
-        key: "wishlistId",
+        key: "wishlist_id",
       },
     },
     // productId
@@ -32,3 +32,4 @@ export const WishlistProduct = sequelize.define(
     timestamps: false,
   }
 );
+

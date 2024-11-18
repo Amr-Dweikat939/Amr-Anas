@@ -5,13 +5,13 @@ import { sequelize } from "../config/db";
 import { DataTypes } from "sequelize";
 
 // Import bcrypt from bcryptjs to encrypt password
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 
 // Define the User model
 export const User = sequelize.define(
   "User",
   {
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -63,3 +63,5 @@ export const User = sequelize.define(
     timestamps: true,
   }
 );
+
+

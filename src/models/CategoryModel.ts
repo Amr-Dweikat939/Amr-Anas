@@ -27,3 +27,7 @@ export const Categories = sequelize.define(
         timestamps: true, // Automatically creates `createdAt` and `updatedAt` fields
     }
 );
+
+
+// Sync the model with the database
+Categories.sync();

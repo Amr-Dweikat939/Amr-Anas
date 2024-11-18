@@ -13,7 +13,7 @@ import { User } from "./userModel";
 export const Rating = sequelize.define(
   "Rating",
   {
-    ratingId: {
+    rating_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -22,7 +22,7 @@ export const Rating = sequelize.define(
       type: DataTypes.INTEGER,
       references: {
         model: User,
-        key: "userId",
+        key: "user_id",
       },
       // product id
     },
@@ -36,3 +36,4 @@ export const Rating = sequelize.define(
     timestamps: false,
   }
 );
+

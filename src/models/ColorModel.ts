@@ -31,3 +31,5 @@ export const Colors = sequelize.define(
         timestamps: false, // Disables timestamps for simplicity
     }
 );
+
+Colors.sync();

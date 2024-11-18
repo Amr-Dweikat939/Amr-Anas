@@ -5,7 +5,7 @@ import { sequelize } from "../config/db.js";
 export const ProductColor = sequelize.define(
     'product_colors',
     {
-        id: {
+        productColor_id: {
             type: DataTypes.UUID,
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4, // Automatically generates a UUID
@@ -33,3 +33,5 @@ export const ProductColor = sequelize.define(
         timestamps: false, // Disables timestamps as this is a join table
     }
 );
+
+

@@ -2,7 +2,9 @@
 import { Sequelize } from "sequelize";
 
 // Load environment variables
-require("dotenv").config();
+import dotenv from "dotenv";
+
+dotenv.config({ path: "../.env" });
 
 // Initialize Sequelize with MySQL database credentials
 export const sequelize = new Sequelize(
@@ -13,7 +15,7 @@ export const sequelize = new Sequelize(
     host: process.env.DB_HOST,
     port: parseInt(process.env.DB_PORT as string),
     dialect: "mysql",
-    logging: (...msg) => console.log(msg),
+    // logging: (...msg) => console.log(msg),
   }
 );
 
@@ -52,3 +54,5 @@ export const closeDb = async () => {
     }
   }
 };
+
+

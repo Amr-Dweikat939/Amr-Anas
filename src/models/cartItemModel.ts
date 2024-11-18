@@ -5,15 +5,15 @@ import { sequelize } from "../config/db";
 import { DataTypes } from "sequelize";
 
 // Import Cart model
-import { Cart } from "./cartModel";
+import { Carts } from "./cartModel";
 
 // Import Product model
 
 // Define the CartItem model
-export const CartItem = sequelize.define(
+export const CartItems = sequelize.define(
   "CartItem",
   {
-    cartItemId: {
+    cartItem_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -21,7 +21,7 @@ export const CartItem = sequelize.define(
     cartId: {
       type: DataTypes.INTEGER,
       references: {
-        model: Cart,
+        model: Carts,
         key: "cartId",
       },
     },
@@ -36,3 +36,4 @@ export const CartItem = sequelize.define(
     timestamps: false,
   }
 );
+
