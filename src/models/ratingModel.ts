@@ -1,13 +1,7 @@
-// Import sequelize refrence
 import { sequelize } from "../config/db";
-
-// Import DataTypes from sequelize module
 import { DataTypes } from "sequelize";
-
-// Import User model
-import { User } from "./userModel";
-
-// Import Product model
+import { User } from "./UserModel";
+import { Product } from "./ProductModel";
 
 // Define the Rating model
 export const Rating = sequelize.define(
@@ -18,13 +12,19 @@ export const Rating = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: User,
         key: "user_id",
       },
-      // product id
+    },
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Product,
+        key: "product_id",
+      },
     },
     rating: {
       type: DataTypes.INTEGER,
@@ -36,4 +36,3 @@ export const Rating = sequelize.define(
     timestamps: false,
   }
 );
-

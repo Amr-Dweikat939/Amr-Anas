@@ -2,13 +2,13 @@ import { Sequelize, DataTypes } from "sequelize";
 import { sequelize } from "../config/db.js";
 
 // Create a PRODUCTS Schema
-export const Products = sequelize.define(
+export const Product = sequelize.define(
     'products',
     {
         product_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             primaryKey: true,
-            defaultValue: DataTypes.UUIDV4, // Automatically generates a UUID
+            autoIncrement: true
         },
         name: {
             type: DataTypes.STRING,
@@ -38,7 +38,7 @@ export const Products = sequelize.define(
             },
         },
         merchant_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'merchants', // Reference to Merchants table
@@ -47,7 +47,7 @@ export const Products = sequelize.define(
             // onDelete: 'CASCADE', // Deletes products if the merchant is deleted
         },
         category_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'categories', // Reference to Categories table

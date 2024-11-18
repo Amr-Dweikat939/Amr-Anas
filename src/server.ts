@@ -2,6 +2,7 @@ import express from "express";
 import { sequelize } from "./config/db";
 import { connectToDB } from "./config/db";
 import  createTables  from "./config/tables";
+import {setupAssociations} from "./models/associations";
 
 // Create a new Express application
 const app = express();
@@ -13,6 +14,7 @@ app.listen(3000, async () => {
         await connectToDB();
         console.log("Database connection has been established successfully.");
         await createTables();
+        setupAssociations();
     } catch (error) {
         console.error("Unable to connect to the database:", error);
     }

@@ -3,13 +3,13 @@ import { sequelize } from "../config/db.js";
 import bcrypt from "bcrypt";
 
 // Create a MERCHANTS Schema
-export const Merchants = sequelize.define(
+export const Merchant = sequelize.define(
     'merchants',
     {
         merchant_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             primaryKey: true,
-            defaultValue: DataTypes.UUIDV4, // Automatically generates a UUID
+            autoIncrement: true
         },
         name: {
             type: DataTypes.STRING,
@@ -66,6 +66,3 @@ export const Merchants = sequelize.define(
         timestamps: true, // Automatically creates `createdAt` and `updatedAt` fields
     }
 );
-
-// Sync the model with the database
-Merchants.sync();

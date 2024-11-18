@@ -2,13 +2,13 @@ import { Sequelize, DataTypes } from "sequelize";
 import { sequelize } from "../config/db.js";
 
 // Create a CATEGORIES Schema
-export const Categories = sequelize.define(
+export const Category = sequelize.define(
     'categories',
     {
         category_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             primaryKey: true,
-            defaultValue: DataTypes.UUIDV4, // Automatically generates a UUID
+            autoIncrement: true
         },
         name: {
             type: DataTypes.STRING,
@@ -28,6 +28,3 @@ export const Categories = sequelize.define(
     }
 );
 
-
-// Sync the model with the database
-Categories.sync();

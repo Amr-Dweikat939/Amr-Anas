@@ -6,12 +6,12 @@ export const ProductColor = sequelize.define(
     'product_colors',
     {
         productColor_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             primaryKey: true,
-            defaultValue: DataTypes.UUIDV4, // Automatically generates a UUID
+            autoIncrement: true, // Automatically generates a UUID
         },
         product_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'products', // References the Products table
@@ -20,7 +20,7 @@ export const ProductColor = sequelize.define(
             onDelete: 'CASCADE', // Deletes the association if the product is deleted
         },
         color_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'colors', // References the Colors table

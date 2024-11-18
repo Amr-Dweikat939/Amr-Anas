@@ -1,97 +1,25 @@
-// Import User model
-import { User } from "./userModel";
+import { User }  from "./UserModel";
+import { Wishlist } from "./WishListModel";
+import { Cart } from "./CartModel";
+import { Rating } from "./RatingModel";
+import { WishlistProduct } from "./WishListProductModel";
+import { CartItem } from "./CartItemModel";
+import { Product} from "./ProductModel";
+import { Category } from "./CategoryModel";
+import { Merchant } from "./MerchantModel";
+import { Color } from "./ColorModel";
+import { ProductColor } from "./ProductColorModel";
+import { ProductCategory } from "./ProductCategoryModel";
 
-// Import Wishlist model
-import { Wishlist } from "./wishListModel";
 
-// Import Cart model
-import { Carts } from "./cartModel";
-
-// Import Rating model
-import { Rating } from "./ratingModel";
-
-// Import WishlistProduct model
-import { WishlistProduct } from "./wishListProductModel";
-
-// Import CartItem model
-import { CartItems } from "./cartItemModel";
-
-// Define associations between models
-export const defineAssociations = () => {
-  // Set up the 1-to-many relationship between user and wishlist
-  User.hasMany(Wishlist, {
-    foreignKey: "userId",
-    onDelete: "CASCADE",
-  });
-  Wishlist.belongsTo(User, {
-    foreignKey: "userId",
-  });
-
-  // Set up the 1-to-many relationship between user and cart
-  User.hasMany(Carts, {
-    foreignKey: "userId",
-    onDelete: "CASCADE",
-  });
-  Carts.belongsTo(User, {
-    foreignKey: "userId",
-  });
-
-  // Set up the 1-to-many relationship between user and rating
-  User.hasMany(Rating, {
-    foreignKey: "userId",
-    onDelete: "CASCADE",
-  });
-  Rating.belongsTo(User, {
-    foreignKey: "userId",
-  });
-
-  // Set up the 1-to-many relationship between product and rating
-
-  // Set up the 1-to-many relationship between wishlist and wishlistProduct
-  Wishlist.hasMany(WishlistProduct, {
-    foreignKey: "wishlistId",
-    onDelete: "CASCADE",
-  });
-  WishlistProduct.belongsTo(Wishlist, {
-    foreignKey: "wishlistId",
-  });
-
-  // Set up the 1-to-many relationship between product and wishlistProduct
-
-  // Set up the 1-to-many relationship between cart and cartItem
-  Carts.hasMany(CartItems, {
-    foreignKey: "cartId",
-    onDelete: "CASCADE",
-  });
-  CartItems.belongsTo(Carts, {
-    foreignKey: "cartId",
-  });
-
-  // Set up the 1-to-many relationship between product and cartItem
-};
-
+import colors from 'colors';
 
 
   /**
    * Sets up associations between models.
    * @param {Object} models - Object with all the models as properties.
    */
-  export const setupAssociations = (models) => {
-    const { 
-      User, 
-      Product, 
-      Category, 
-      Merchant, 
-      Cart, 
-      CartItem, 
-      Wishlist, 
-      WishlistProduct, 
-      Rating, 
-      Color, 
-      ProductColor, 
-      ProductCategory, 
-      Admin 
-    } = models;
+  export const setupAssociations = () => {
   
     // Product associations
     /**
@@ -260,4 +188,8 @@ export const defineAssociations = () => {
     Product.hasMany(Rating, {
       foreignKey: 'product_id'
     });
+
+    //success message
+    console.log(colors.green("Models associations created successfully."));
+
   };

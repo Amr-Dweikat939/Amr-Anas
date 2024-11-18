@@ -1,31 +1,31 @@
-// Import sequelize refrence
 import { sequelize } from "../config/db";
-
-// Import DataTypes from sequelize module
-import { DataTypes } from "sequelize";
-
-// Import Cart model
-import { Carts } from "./cartModel";
-
-// Import Product model
+import { DataTypes } from "sequelize"
+import { Cart } from "./CartModel";
+import { Product } from "./ProductModel";
 
 // Define the CartItem model
-export const CartItems = sequelize.define(
+export const CartItem = sequelize.define(
   "CartItem",
   {
-    cartItem_id: {
+    cartItem_Id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    cartId: {
+    cart_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: Carts,
+        model: Cart,
         key: "cart_id",
       },
     },
-    // productId
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Product,
+        key: "product_id",
+      },
+    },
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -36,4 +36,3 @@ export const CartItems = sequelize.define(
     timestamps: false,
   }
 );
-

@@ -6,12 +6,12 @@ export const ProductCategory = sequelize.define(
     'product_categories',
     {
         productCategory_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             primaryKey: true,
-            defaultValue: DataTypes.UUIDV4, // Automatically generates a UUID
+            autoIncrement: true
         },
         product_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'products', // References the Products table
@@ -20,7 +20,7 @@ export const ProductCategory = sequelize.define(
             onDelete: 'CASCADE', // Deletes association if the product is deleted
         },
         category_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'categories', // References the Categories table

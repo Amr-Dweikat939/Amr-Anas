@@ -5,10 +5,10 @@ import { sequelize } from "../config/db";
 import { DataTypes } from "sequelize";
 
 // Import User model
-import { User } from "./userModel";
+import { User } from "./UserModel";
 
 // Define the Cart model
-export const Carts = sequelize.define(
+export const Cart = sequelize.define(
   "Cart",
   {
     cart_id: {

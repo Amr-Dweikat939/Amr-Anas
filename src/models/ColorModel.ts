@@ -2,13 +2,13 @@ import { Sequelize, DataTypes } from "sequelize";
 import { sequelize } from "../config/db.js";
 
 // Create a COLORS Schema
-export const Colors = sequelize.define(
+export const Color = sequelize.define(
     'colors',
     {
         color_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             primaryKey: true,
-            defaultValue: DataTypes.UUIDV4, // Automatically generates a UUID
+            autoIncrement: true
         },
         name: {
             type: DataTypes.STRING,
@@ -32,4 +32,3 @@ export const Colors = sequelize.define(
     }
 );
 
-Colors.sync();

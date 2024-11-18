@@ -7,9 +7,9 @@ export const Admin = sequelize.define(
     'admin',
     {
         admin_id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
             primaryKey: true,
-            defaultValue: DataTypes.UUIDV4, // Automatically generates a UUID
+            autoIncrement: true
         },
         name: {
             type: DataTypes.STRING,
@@ -53,6 +53,3 @@ export const Admin = sequelize.define(
         timestamps: true, // Enables createdAt and updatedAt automatically
     }
 );
-
-// Sync the model with the database
-Admin.sync();

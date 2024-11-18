@@ -5,7 +5,7 @@ import { sequelize } from "../config/db";
 import { DataTypes } from "sequelize";
 
 // Import User model
-import { User } from "./userModel";
+import { User } from "./UserModel";
 
 // Define the Wishlist model
 export const Wishlist = sequelize.define(
@@ -34,4 +34,3 @@ export const Wishlist = sequelize.define(
     updatedAt: false,
   }
 );
-
