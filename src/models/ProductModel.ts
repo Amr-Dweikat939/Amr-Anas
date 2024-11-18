@@ -44,7 +44,7 @@ export const Products = sequelize.define(
                 model: 'merchants', // Reference to Merchants table
                 key: 'merchant_id',
             },
-            onDelete: 'CASCADE', // Deletes products if the merchant is deleted
+            // onDelete: 'CASCADE', // Deletes products if the merchant is deleted
         },
         category_id: {
             type: DataTypes.UUID,
@@ -53,7 +53,7 @@ export const Products = sequelize.define(
                 model: 'categories', // Reference to Categories table
                 key: 'category_id',
             },
-            onDelete: 'SET NULL', // Sets category_id to NULL if the category is deleted
+            // onDelete: 'SET NULL', // Sets category_id to NULL if the category is deleted
         },
         brand_name: {
             type: DataTypes.STRING,

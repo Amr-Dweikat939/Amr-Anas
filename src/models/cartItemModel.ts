@@ -22,7 +22,7 @@ export const CartItems = sequelize.define(
       type: DataTypes.INTEGER,
       references: {
         model: Carts,
-        key: "cartId",
+        key: "cart_id",
       },
     },
     // productId

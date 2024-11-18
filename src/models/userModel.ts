@@ -40,9 +40,14 @@ export const User = sequelize.define(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      set(value: string) {
-        const hashedPassword = bcrypt.hashSync(value, 10);
-        this.setDataValue("password", hashedPassword);
+      set(value) {
+        if (!value) {
+            console.error('Password is required.');
+            return;
+        }
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(value, salt);
+        this.setDataValue('password', hash);
       },
     },
     address: {

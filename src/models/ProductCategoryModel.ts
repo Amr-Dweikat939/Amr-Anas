@@ -34,5 +34,3 @@ export const ProductCategory = sequelize.define(
     }
 );
 
-// Create the table in the database
-ProductCategory.sync();
