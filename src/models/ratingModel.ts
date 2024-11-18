@@ -8,6 +8,7 @@ import { DataTypes } from "sequelize";
 import { User } from "./userModel";
 
 // Import Product model
+import { Products } from "./ProductModel";
 
 // Define the Rating model
 export const Rating = sequelize.define(
@@ -18,13 +19,19 @@ export const Rating = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: User,
         key: "user_id",
       },
-      // product id
+    },
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Products,
+        key: "product_id",
+      },
     },
     rating: {
       type: DataTypes.INTEGER,
@@ -36,4 +43,3 @@ export const Rating = sequelize.define(
     timestamps: false,
   }
 );
-
