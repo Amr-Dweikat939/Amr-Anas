@@ -10,7 +10,14 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+<<<<<<< HEAD
     "bcrypt": "^5.1.1",
+=======
+    "bcryptjs": "^2.4.3",
+>>>>>>> 70c65bf9f7d5119c64c82f640ccf95012461d178
     "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6"
   }
 }
